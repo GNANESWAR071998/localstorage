@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="login(event)">
+        <input type="text" placeholder="Enter your name" id="name" required>
+        <input type="password" placeholder="Enter your password" id="password" required>
+        <button type="submit">login</button>   
+    </form>
+
+    <script>
+
+        function login(event){
+            event.preventDefault();
+
+            let inputName=document.getElementById("name");
+            let inputPassword=document.getElementById("password");
+
+            let userName=localStorage.getItem("name")
+            let userPassword=localStorage.getItem("password")
+
+            if(userName === inputName.value && userPassword === inputPassword.value){
+                alert("login successfully..")
+
+                localStorage.setItem("isloggedIn", "true");
+
+                window.location.href="./4product.html"
+            }
+            else{
+                alert("oops wrong credentials..")
+            }
+
+            inputName.value=""
+            inputPassword.value=""
+
+        }
+     
+    </script>
+</body>
+</html>
